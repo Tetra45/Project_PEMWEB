@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - FUAMBA</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0c4a6e;
+      color: #1e293b;
+    }
+
+    /* Section Utama Latar Laut & Pantai */
+    .ocean-section {
+      position: relative;
+      padding: 70px 20px;
+      min-height: 100vh;
+      background: linear-gradient(rgba(2, 132, 199, 0.55), rgba(12, 74, 110, 0.82)), 
+                  url('Tropical Village Along Turquoise Shores.png') center/cover no-repeat fixed;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Pattern Gelembung Air Latar Belakang */
+    .ocean-bg-decor {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 88% 80%, rgba(255, 255, 255, 0.10) 0%, transparent 25%);
+      pointer-events: none;
+    }
+
+    /* Frame Foto Tema Laut (Polaroid Pesisir) */
+    .ocean-photo-frame {
+      position: absolute;
+      background: #ffffff;
+      padding: 10px 10px 30px 10px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+      border-radius: 6px;
+      border: 3px solid #bae6fd;
+      width: 230px;
+      z-index: 2;
+      transition: transform 0.3s ease;
+    }
+
+    .ocean-photo-frame:hover {
+      transform: scale(1.08) rotate(0deg) !important;
+      z-index: 10;
+    }
+
+    .ocean-photo-frame img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .ocean-photo-frame .frame-label {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #0369a1;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    /* Hiasan Kerang di Pojok Frame Foto */
+    .ocean-photo-frame::after {
+      content: '🐚';
+      position: absolute;
+      top: -12px;
+      right: -10px;
+      font-size: 24px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .photo-top-right {
+      top: 40px;
+      right: 40px;
+      transform: rotate(6deg);
+    }
+
+    .photo-bottom-left {
+      bottom: 40px;
+      left: 40px;
+      transform: rotate(-6deg);
+    }
+
+    .photo-bottom-left::after {
+      content: '⚓';
+    }
+
+    /* Container Konten Tengah */
+    .content-container {
+      position: relative;
+      max-width: 860px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      z-index: 5;
+    }
+
+    /* Kertas Binder Tema Laut */
+    .binder-paper {
+      position: relative;
+      background-color: rgba(247, 252, 255, 0.96);
+      background-image: linear-gradient(to bottom, #bae6fd 1px, transparent 1px);
+      background-size: 100% 28px;
+      line-height: 28px;
+      padding: 35px 35px 35px 60px;
+      border-radius: 8px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+      border-left: 5px solid #38bdf8;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Lubang Binder Ring (Telah diperbaiki agar bulat sempurna) */
+    .binder-holes {
+      position: absolute;
+      left: 14px;
+      top: 24px;
+      bottom: 24px;
+      width: 24px;
+      background-image: radial-gradient(circle at 50% 50%, #032035 0%, #0c4a6e 32%, #38bdf8 40%, transparent 44%);
+      background-size: 24px 36px;
+      background-repeat: repeat-y;
+      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+    }
+
+    .binder-paper h2 {
+      color: #0369a1;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      border-bottom: 2px dashed #38bdf8;
+      padding-bottom: 4px;
+    }
+
+    .binder-paper h3 {
+      color: #0284c7;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      margin-top: 15px;
+    }
+
+    .binder-paper p {
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+    }
+
+    /* Grid Sticky Notes */
+    .sticky-notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    /* Sticky Note dengan Magnet */
+    .sticky-note {
+      position: relative;
+      padding: 35px 22px 22px 22px;
+      border-radius: 4px;
+      box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .sticky-note:hover {
+      transform: translateY(-5px) rotate(0deg) !important;
+    }
+
+    .note-team {
+      background: rgba(224, 242, 254, 0.95);
+      transform: rotate(-2.5deg);
+      border-bottom-right-radius: 25px 5px;
+    }
+
+    .note-visi-misi {
+      background: rgba(204, 251, 241, 0.95);
+      transform: rotate(2.5deg);
+      border-bottom-right-radius: 25px 5px;
+    }
+
+    /* Magnet Tema Laut */
+    .ocean-magnet {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      font-size: 18px;
+      z-index: 10;
+    }
+
+    .ocean-magnet.starfish {
+      background: radial-gradient(circle, #fb923c 30%, #ea580c 90%);
+      border: 2px solid #ffedd5;
+    }
+
+    .ocean-magnet.shell {
+      background: radial-gradient(circle, #38bdf8 30%, #0284c7 90%);
+      border: 2px solid #e0f2fe;
+    }
+
+    .sticky-note h3 {
+      color: #0369a1;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .team-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .team-list li {
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #0f172a;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .team-list span {
+      display: block;
+      font-weight: 400;
+      color: #0369a1;
+      font-size: 0.85rem;
+    }
+
+    .visi-misi-box h4 {
+      color: #0f172a;
+      font-size: 1rem;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .visi-misi-box p {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .visi-misi-box ul {
+      padding-left: 18px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .visi-misi-box li {
+      margin-bottom: 6px;
+    }
+
+    /* List Referensi */
+    .reference-list {
+      padding-left: 20px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .reference-list li {
+      margin-bottom: 8px;
+    }
+
+    /* Responsif Layar Kecil */
+    @media (max-width: 900px) {
+      .ocean-photo-frame {
+        position: relative;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        margin: 0 auto;
+        transform: none !important;
+      }
+      
+      .ocean-section {
+        flex-direction: column;
+        padding: 40px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="ocean-section">
+    <div class="ocean-bg-decor"></div>
+
+    <!-- Foto Kanan Atas -->
+    <div class="ocean-photo-frame photo-top-right">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Sambangan Party">
+      <div class="frame-label">Sambangan Party 🌊</div>
+    </div>
+
+    <!-- Container Utama Tengah -->
+    <div class="content-container">
+
+      <!-- 1. Kertas Binder: About Website -->
+      <div class="binder-paper">
+        <div class="binder-holes"></div>
+        <h2>About Website</h2>
+        <h3>Facts & Understanding: Aquatic, Mangrove & Beach Archive</h3>
+        <p><strong>Deskripsi:</strong> Pusat arsip digital dan pustaka informasi visual yang menyajikan fakta-fakta ilmiah tentang keanekaragaman hayati pesisir serta isu SDG 13 & 14.</p>
+      </div>
+
+      <!-- 2. Sticky Notes Grid -->
+      <div class="sticky-notes-grid">
+        
+        <!-- Sticky Note: About Us -->
+        <div class="sticky-note note-team">
+          <div class="ocean-magnet starfish" title="Magnet Bintang Laut">⭐</div>
+          <h3>About Us</h3>
+          <ul class="team-list">
+            <li>Komang Hendra Swantara <span>(2515091013)</span></li>
+            <li>Fransiskus Asisi Nathaniel Yudhistira Dheasaputra <span>(2515091063)</span></li>
+            <li>I Gusti Ngurah Agung Rangga Putrasena <span>(2515091073)</span></li>
+            <li>Ananda Gede Isvara Vidhi Sairam <span>(2515091088)</span></li>
+          </ul>
+        </div>
+
+        <!-- Sticky Note: Visi & Misi -->
+        <div class="sticky-note note-visi-misi">
+          <div class="ocean-magnet shell" title="Magnet Kerang">🐚</div>
+          <h3>Visi & Misi</h3>
+          <div class="visi-misi-box">
+            <h4>Visi:</h4>
+            <p>Menjadi portal edukasi yang membantu masyarakat memahami dan meningkatkan kepedulian terhadap kelestarian laut serta hubungannya dengan perubahan iklim.</p>
+            
+            <h4>Misi:</h4>
+            <ul>
+              <li>Menyediakan informasi yang mudah dipahami dan dapat ditelusuri sumbernya.</li>
+              <li>Menjelaskan dampak perubahan iklim terhadap laut dan pesisir.</li>
+              <li>Mendorong tindakan nyata untuk menjaga ekosistem laut.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3. Kertas Binder: Referensi -->
+      <div class="binder-paper">
+        <div class="binder-holes"></div>
+        <h2>Referensi</h2>
+
+        <h3>Referensi data dan materi halaman 2:</h3>
+        <ol class="reference-list">
+          <li>IPCC. Special Report on the Ocean and Cryosphere in a Changing Climate (SROCC), 2019. (Peran laut menyerap karbon dan panas.)</li>
+          <li>NOAA. "Ocean Facts: How much of the oxygen comes from the ocean?" (oceanservice.noaa.gov)</li>
+          <li>Pew Charitable Trusts dan SYSTEMIQ. Breaking the Plastic Wave, 2020.</li>
+          <li>UNEP. From Pollution to Solution: A Global Assessment of Marine Litter and Plastic Pollution, 2021.</li>
+          <li>Secretariat of the Convention on Biological Diversity. Marine Debris: Understanding, Preventing and Mitigating the Significant Adverse Impacts on Marine and Coastal Biodiversity, 2016.</li>
+          <li>Jambeck, J. R. dkk. "Plastic waste inputs from land into the ocean." Science, 2015.</li>
+          <li>NOAA Coral Reef Watch dan International Coral Reef Initiative (ICRI), pengumuman peristiwa pemutihan global keempat (April 2024).</li>
+          <li>GCRMN/ICRI/UNEP. Status of Coral Reefs of the World: 2020.</li>
+          <li>FAO. The World's Mangroves 2000-2020, 2023.</li>
+          <li>Kementerian Lingkungan Hidup dan Kehutanan RI. Peta Mangrove Nasional, 2021.</li>
+          <li>Donato, D. C. dkk. "Mangroves among the most carbon-rich forests in the tropics." Nature Geoscience, 2011.</li>
+          <li>McIvor, A. dkk. Reduction of wind and swell waves by mangroves. Natural Coastal Protection Series, The Nature Conservancy dan Wetlands International, 2012.</li>
+        </ol>
+
+        <h3>Rujukan panduan halaman 3:</h3>
+        <ol class="reference-list">
+          <li>UNEP. Beat Plastic Pollution (kampanye Hari Lingkungan Hidup Sedunia 2018) dan panduan aksi individu.</li>
+          <li>Undang-Undang No. 18 Tahun 2008 tentang Pengelolaan Sampah (dasar hukum pemilahan sampah rumah tangga).</li>
+          <li>Gubernur Bali. Peraturan Gubernur Bali No. 97 Tahun 2018 tentang Pembatasan Timbulan Sampah Plastik Sekali Pakai.</li>
+          <li>Marine Stewardship Council (msc.org) dan Aquaculture Stewardship Council (asc-aqua.org), standar sertifikasi seafood.</li>
+          <li>WWF Indonesia. Panduan konsumen seafood berkelanjutan.</li>
+          <li>Ocean Conservancy. International Coastal Cleanup, panduan dan lembar pencatatan data sampah.</li>
+          <li>Kementerian Lingkungan Hidup dan Kehutanan RI. Materi pengelolaan sampah dan Sistem Informasi Pengelolaan Sampah Nasional (SIPSN).</li>
+          <li>FAO. Code of Conduct for Responsible Fisheries, 1995.</li>
+        </ol>
+
+        <h3>Rujukan jurnal dan artikel ilmiah halaman 4:</h3>
+        <ol class="reference-list">
+          <li>Donato, D. C. dkk. (2011). "Mangroves among the most carbon-rich forests in the tropics." Nature Geoscience, 4, 293-297.</li>
+          <li>Alongi, D. M. (2014). "Carbon cycling and storage in mangrove forests." Annual Review of Marine Science, 6, 195-219.</li>
+          <li>McIvor, A. dkk. (2012). Reduction of wind and swell waves by mangroves. The Nature Conservancy dan Wetlands International.</li>
+          <li>FAO (2023). The World's Mangroves 2000-2020.</li>
+          <li>KLHK RI (2021). Peta Mangrove Nasional.</li>
+          <li>Rochman, C. M. dkk. (2015). "Anthropogenic debris in seafood: Plastic debris and fibers from textiles in fish and bivalves sold for human consumption." Scientific Reports, 5, 14340.</li>
+          <li>Leslie, H. A. dkk. (2022). "Discovery and quantification of plastic particle pollution in human blood." Environment International, 163.</li>
+          <li>NOAA. "What are microplastics?" (oceanservice.noaa.gov).</li>
+          <li>UNEP (2021). From Pollution to Solution.</li>
+        </ol>
+      </div>
+
+    </div>
+
+    <!-- Foto Kiri Bawah -->
+    <div class="ocean-photo-frame photo-bottom-left">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Ekosistem Laut">
+      <div class="frame-label">Terumbu Karang 🐠</div>
+    </div>
+
+  </section>
+
+</body>
+</html>

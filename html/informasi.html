@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUAMBA</title>
+
+    <style>
+        @font-face {
+            font-family: ITC Avant Garde Gothic Bold;
+            src: url('../assets/fonts/ITC Avant Garde Gothic Bold.otf');
+        }
+        @font-face {
+            font-family: weezerfont;
+            src: url('../assets/fonts/weezerfont.ttf');
+        }
+        h1,h2 {
+            font-family: ITC Avant Garde Gothic Bold;
+        }
+        p,a {
+            font-family: weezerfont;
+        }
+        a {
+            text-decoration: none;
+        }
+        :root {
+            --teks-gelap: #1D3557;
+            --biru: #457B9D;
+            --biru-muda: #A8DADC;
+            --putih-bg: #F1FAEE;
+            --teal: #F1FAEE;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .distance {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .distance-element {
+            max-width: 90%;
+        }
+
+/* ini untuk navbar desktop */
+        nav {
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            height: 4rem;
+            position: relative;
+            padding: 0.6rem 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 2;
+        }
+        nav .logo {
+            width: 10rem;
+        }
+        .menu {
+            display: flex;
+            gap: 2rem;
+        }
+        .menu-toggle {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        nav a {
+            padding-bottom: 3px;
+            color: var(--teks-gelap);
+            font-weight: 800;
+             
+        }
+        nav a:hover {
+            border-bottom: 3px solid var(--teks-gelap);
+        }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 1.6rem;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--teks-gelap);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+ /* ini untuk navbar desktop */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                                url(../assets/images/sanur.jpg.jpeg);
+            min-height: 35rem;
+            display: flex;
+            align-items: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-content {
+         max-width: 40rem;
+         color: var(--putih-bg);
+         padding-left: 2rem;
+
+        }
+        .hero h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+        .hero p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            width: 90%;
+        }
+
+        .explain {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 36px 48px;
+        }
+        .explain-card {
+            padding: 20px;
+            border-top: solid orange 5px;
+        }
+        .explain-card h1 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        .explain p {
+            line-height: 1.75rem;
+        }
+
+        .card {
+            background-color: #1D3557;
+            min-height: 35rem;
+            display: flex;
+            align-items: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 1rem;
+            flex-direction: column;
+            padding: 3rem;
+            text-align: center;
+            gap: 28px;
+        }
+        .card-element {
+            background-color: white;
+            width: auto;
+            text-align: left;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-body {
+            flex: 1;                  
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 1.25rem 1.5rem;
+}
+        .card-element a {
+            margin-top: auto;
+            padding-top: 1rem;
+            align-self:flex-start;
+        }
+        .card-image {
+            width: 100%; 
+            border-radius: 8px 8px 0 0;
+            object-fit: cover;
+            aspect-ratio: 3 / 2;
+        }
+        .card .explain {
+            width: 100%;
+        }
+    @media(max-width: 1100px){
+    .explain {
+        grid-template-columns: 1fr 1fr;
+    }
+    }
+        @media (max-width: 820px) {
+    /* ini untuk navbar hp */
+    .nav {
+        padding: 0.6rem 1.5rem;
+    }
+    .menu-toggle:checked + .hamburger span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle:checked + .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle:checked + .hamburger span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Garis fokus saat tombol dipilih dengan keyboard */
+    .menu-toggle:focus-visible + .hamburger {
+      outline: 3px solid #d9482b;
+      border-radius: 6px;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: white;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    .menu a {
+        padding: 0.9rem 1.5rem;
+    }
+    .menu a:hover {
+        background: var(--biru-muda);
+        color: var(--teks-gelap);
+    }
+
+      /* Menu tampil saat checkbox dicentang */
+    .menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+    .hamburger {
+        display: flex;
+    }
+    /* ini untuk navbar hp */
+
+    .explain {
+        grid-template-columns: 1fr;
+    }
+
+    }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="../assets/images/fuamba.png" alt="">
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Buka menu">
+    <label for="menu-toggle" class="hamburger" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+        <div class="menu">
+            <a href="edukasi.html">Edukasi</a>
+            <a href="../index.html">Beranda</a>
+            <a href="informasi.html">Informasi</a>
+            <a href="panduan.html">Panduan</a>
+            <a href="tentang.html">Tentang</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1 >Laut yang menjaga kita, pesisir yang perlu kita jaga </h1>
+            <p>
+                Laut menyerap hampir separuh emisi karbon dioksida dan menghasilkan sebagian besar oksigen yang kita hirup. Sekarang giliran kita menjaganya
+            </p>
+        </div>
+    </div>
+    <div class="distance">
+    <div class="distance-element">
+        <div style="text-align: center; margin: 3rem auto;">
+        <h1 style="margin-bottom: 1.5rem;">Laut bekerja diam-diam sebagai penstabil iklim dunia</h1>
+    </div>
+    <div class="explain">
+        <div class="explain-card">
+            <h1>70% permukaan bumi</h1>
+            <p>Laut menutupi sekitar 70 persen permukaan bumi dan menyerap lebih dari 90 persen panas berlebih akibat gas rumah kaca.</p>
+        </div>
+        <div class="explain-card">
+            <h1>Napas bumi</h1>
+            <p>Fitoplankton dan tumbuhan laut menghasilkan sedikitnya separuh oksigen yang kita hirup.</p>
+        </div>
+        <div class="explain-card">
+            <h1>Ancaman di pesisir</h1>
+            <p>Sampah plastik mencemari perairan, lautan yang menghangat merusak terumbu karang, dan hutan mangrove yang melindungi garis pantai terus menyusut.</p>
+        </div>
+    </div>
+    <br><br>
+    <div class="card">
+        <h1 style="color: white; width: 80%;">
+            Memahami tiga ancaman utama bagi ekosistem laut dan pantai
+        </h1>
+        <div class="explain">
+            <div class="card-element">
+                <img class="card-image" src="../assets/images/laut-sampah2.jpg" alt="">
+                <div class="card-body">
+                <h2 style="color: black; font-size: 18px; margin-bottom: 10px;">
+                    Krisis Sampah Plastik Laut
+                </h2>
+                <p>
+                    Jutaan ton plastik masuk ke 
+                    laut setiap tahun dan membahayakan 
+                    satwa laut serta manusia.
+                </p>
+                <a href="">Baca Selengkapnya</a>
+                </div>
+            </div>
+            <div class="card-element">
+                <img class="card-image" src="../assets/images/terumbu-karang.jpg" alt="">
+                <div class="card-body">
+                <h2 style="color: black; font-size: 18px; margin-bottom: 10px;">
+                    Pemutihan Terumbu Karang
+                </h2>
+                <p>
+                    Suhu laut yang naik membuat karang kehilangan 
+                    warna, makanan, dan akhirnya mati.
+                </p>
+                <a href="">Baca Selengkapnya</a>
+                </div>
+            </div>
+            <div class="card-element">
+                <img class="card-image" src="../assets/images/mangrove-rusak.jpg" alt="">
+                <div class="card-body">
+                <h2 style="color: black; font-size: 18px; margin-bottom: 10px;">
+                    Kerusakan Mangrove dan Abrasi
+                </h2>
+                <p>
+                    Alih fungsi lahan mangrove menjadi tambak membuat air laut 
+                    naik dan mengancam pemukiman warga terendam banjir rob.
+                </p>
+                <a href="">Baca Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    </div>
+    </div>
+</body>
+</html>
