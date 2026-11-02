@@ -22,6 +22,12 @@
     --radius-media: 8px;
 
     --media-width: 330px;
+
+    --teks-gelap: #1D3557;
+    --biru: #457B9D;
+    --biru-muda: #A8DADC;
+    --putih-bg: #F1FAEE;
+    --teal: #F1FAEE;
 }
 
 body {
