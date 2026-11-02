@@ -1,0 +1,414 @@
+        @font-face {
+            font-family: ITC Avant Garde Gothic Bold;
+            src: url('../assets/fonts/ITC Avant Garde Gothic Bold.otf');
+        }
+        @font-face {
+            font-family: weezerfont;
+            src: url('../assets/fonts/weezerfont.ttf');
+        }
+        h1,h2 {
+            font-family: ITC Avant Garde Gothic Bold;
+        }
+        p,a {
+            font-family: weezerfont;
+        }
+        a {
+            text-decoration: none;
+        }
+        :root {
+            --teks-gelap: #1D3557;
+            --biru: #457B9D;
+            --biru-muda: #A8DADC;
+            --putih-bg: #F1FAEE;
+            --teal: #F1FAEE;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #ffffff;
+        }
+
+/* ini untuk navbar desktop */
+        nav {
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            height: 4rem;
+            position: relative;
+            padding: 0.6rem 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 2;
+        }
+        nav .logo {
+            width: 10rem;
+        }
+        .menu {
+            display: flex;
+            gap: 2rem;
+        }
+        .menu-toggle {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        nav a {
+            padding-bottom: 3px;
+            color: var(--teks-gelap);
+            font-weight: 800;
+             
+        }
+        nav a:hover {
+            border-bottom: 3px solid var(--teks-gelap);
+        }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 1.6rem;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--teks-gelap);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+ /* ini untuk navbar desktop */
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.75rem;
+            background: var(--hijau-laut);
+            color: var(--teks-gelap);
+            font-weight: 700;
+            border-radius: 50px;    
+            transition: background 0.2s color 0.2;
+            background-color: var(--biru-muda);
+        }
+        .btn:hover {
+            background: var(--teks-gelap);
+            color: white;
+            border: 3px solid white;
+        }
+
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                                url(../assets/images/sea.jpg);
+            min-height: 35rem;
+            display: flex;
+            align-items: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-content {
+         max-width: 40rem;
+         color: var(--putih-bg);
+         padding-left: 5rem;
+        }
+        .hero h1 {
+            font-weight: 800;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+        .hero p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .introduction {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                        url(../assets/images/pantai.jpg);
+            min-height: 35rem;
+            display: flex;
+            align-items: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .SDG {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            gap: 4rem;
+            padding: 5rem 2rem;
+            max-width: 60rem;
+            margin: 0 auto;
+        }
+        .SDG-logo {
+            width: min(19rem, 40vw);
+            border-radius: 1rem;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+        }
+        .SDG-title {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            line-height: 1.15;
+        }
+        .SDG-text {
+            max-width: 34rem;
+            margin: 0 auto 1.5rem;
+            line-height: 1.7;
+        }
+
+        .container-bg {
+            background-image: url('../assets/images/sea2.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+        }
+        .glass-box {
+            background-color: rgba(255, 255, 255, 0.75); 
+            backdrop-filter: blur(10px);                  
+            -webkit-backdrop-filter: blur(10px);          
+            border: 1px solid rgba(255, 255, 255, 0.4);   
+            text-align: center;
+            color: #111827;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .main-box {
+            border-radius: 24px;
+            padding: 32px 24px;
+            max-width: 650px;
+            margin: 0 auto 24px auto;
+        }
+
+        .main-box h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+
+        .main-box p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .grid-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .small-box {
+            border-radius: 18px;
+            padding: 20px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .small-box p {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin: 0;
+        }
+        .distance {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .distance-element {
+            width: 80%;
+            padding: 2rem 0;
+        }
+        .distance-element div {
+            border-radius: 8px;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #1D3557;
+            padding: 3rem 0;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        footer p {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+    .quote-title {
+    font-size: 2rem;
+    }
+
+    .hero {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 2rem;
+    }
+    .hero-content {
+        padding-left: 0;
+    }
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    /* ini untuk navbar hp */
+    .nav {
+        padding: 0.6rem 1.5rem;
+    }
+    .menu-toggle:checked + .hamburger span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle:checked + .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle:checked + .hamburger span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Garis fokus saat tombol dipilih dengan keyboard */
+    .menu-toggle:focus-visible + .hamburger {
+      outline: 3px solid #d9482b;
+      border-radius: 6px;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: white;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    .menu a {
+        padding: 0.9rem 1.5rem;
+    }
+    .menu a:hover {
+        background: var(--biru-muda);
+        color: var(--teks-gelap);
+    }
+
+      /* Menu tampil saat checkbox dicentang */
+    .menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+    .hamburger {
+        display: flex;
+    }
+    /* ini untuk navbar hp */
+
+
+
+        .SDG {
+            padding: 5rem 3rem;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .SDG-13 .SDG {
+            flex-direction: column-reverse;
+        }
+
+        .SDG-box {
+            text-align: center;
+        }
+
+        .sdg p {
+            margin-left: 0;
+        }
+
+        .sdg h2 {
+            font-size: 2.4rem;
+        }
+
+        .grid-box {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .explain {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                        url(../assets/images/sea2.jpg);
+        min-height: 35rem;
+        display: flex;
+        align-items: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+    html {
+  scroll-behavior: smooth;
+}
+/* Gaya untuk tombol "Back to Top" */
+
+    .back-to-top {
+        position: absolute;
+        bottom: 20px; 
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #d9d9d9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: background-color 0.2s ease;
+        z-index: 10;
+    }
+
+    .back-to-top:hover {
+        background-color: #c5c5c5;
+    }
+
+    .arrow-icon {
+        width: 18px;
+        height: auto;
+        display: block;
+    }
+
+/* Gaya untuk bagian kutipan */
+.quote-section {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 5rem 0;
+    padding-left: 3rem;
+}
+.quote-title {
+    font-size: 3rem;
+    line-height: 1.15;
+    color: #000;
+    margin-bottom: 1rem;
+}
+.quote-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--teks-gelap);
+    padding-left: 2rem;
+}
+    

@@ -1,37 +1,77 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
+
 :root {
-    --teks-gelap: #1D3557;
-    --biru: #457B9D;
-    --biru-muda: #A8DADC;
-    --putih-bg: #F1FAEE;
-    --teal: #F1FAEE;
+    /* Mangrove */
+    --green-dark: #00694A;
+    --green-card: #43A540;
+
+    /* Mikroplastik */
+    --navy: #1D3557;
+    --blue-card: #75A4D3;
+
+    /* Highlight */
+    --orange: #FDB03F;
+
+    --radius-box: 16px;
+    --radius-card: 10px;
+    --radius-media: 8px;
+
+    --media-width: 330px;
 }
-body.info-page {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #2c2c2c;
-    background-color: #ffffff;
-    line-height: 1.6;
+
+body {
+    background-color: #f7f3f3;
+    color: #333333;
+    line-height: 1.4;
 }
+
 @font-face {
-    font-family: ITC Avant Garde Gothic Bold;
-    src: url('../assets/fonts/ITC Avant Garde Gothic Bold.otf');
+    font-family: "ITC Avant Garde Gothic Bold";
+    src: url("../assets/fonts/ITC Avant Garde Gothic Bold.otf");
 }
+
 @font-face {
-    font-family: weezerfont;
-    src: url('../assets/fonts/weezerfont.ttf');
+    font-family: "weezerfont";
+    src: url("../assets/fonts/weezerfont.ttf");
 }
-h1,h2 {
-    font-family: ITC Avant Garde Gothic Bold;
+
+/* Fallback Arial disertakan agar teks tetap terbaca jika file font gagal dimuat */
+h1,
+h2,
+h3 {
+    font-family: "ITC Avant Garde Gothic Bold", Arial, sans-serif;
 }
-p,a {
-    font-family: weezerfont;
+
+p,
+a {
+    font-family: "weezerfont", Arial, sans-serif;
 }
+
 a {
     text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Teks yang tidak tampil di layar tapi tetap terbaca screen reader */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 /* ini untuk navbar desktop */
@@ -87,152 +127,174 @@ a {
     }
  /* ini untuk navbar desktop */
 
-.edukasi-page {
-    max-width: 650px;
-    margin: 0 auto;
-    padding: 20px 20px 60px 20px;
+/* KONTEN UTAMA */
+main {
+  padding: clamp(2.5rem, 8vw, 7rem) clamp(1rem, 2.4vw, 1.6rem) clamp(3rem, 8vw, 7rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 9vw, 8rem);
 }
 
-.heading-edukasi {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 15px;
+/* Container section */
+.topic {
+  display: grid;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: var(--radius-box);
+  color: #fff;
+  row-gap: 1.25rem;
 }
 
-.heading-edukasi h1 {
-    font-size: 26px;
-    font-weight: 700;
-    color: #111111;
-    margin-bottom: 12px;
+.topic-title {
+  grid-area: title;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
-.edukasi-meta-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.media {
+  grid-area: media;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.edukasi-meta {
-    font-size: 13px;
-    color: #666666;
+.cards {
+  grid-area: cards;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.edukasi-actions {
-    display: none !important;
+/*  Gambar & kutipan  */
+.media-figure img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: var(--radius-media);
 }
 
-.author {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin: 15px 0 25px 0;
+.quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-media);
+  text-align: center;
 }
 
-.author-photos {
-    display: flex;
-    align-items: center;
+.quote p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.author-photo {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+/* Kartu */
+.card {
+  min-height: 106px;
+  padding: 0.85rem 0.9rem 0.9rem;
+  border-radius: var(--radius-card);
 }
 
-.author-photo-two {
-    margin-left: -12px;
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.15;
 }
 
-.author-details {
-    text-align: left;
+.card-text {
+  margin-top: 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.25;
 }
 
-.author-names {
-    font-size: 13px;
-    font-weight: 600;
-    color: #222222;
+/* SECTION 1 - MANGROVE */
+.topic--mangrove {
+  grid-template-columns: var(--media-width) minmax(0, 1fr);
+  grid-template-areas:
+    ". title"
+    "media cards";
+  column-gap: 2.7rem;
+  padding: 4rem 4.25rem 4rem 3rem;
+  background: var(--green-dark);
 }
 
-.author-role {
-    font-size: 12px;
-    color: #777777;
+.topic--mangrove .quote,
+.topic--mangrove .card {
+  background: var(--green-card);
 }
 
-.featured-figure {
-    margin: 20px 0 25px 0;
+/* Kartu ke-8: highlight oranye */
+.topic--mangrove .card--highlight {
+  background: var(--orange);
+  color: #111;
 }
 
-.featured-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 2px;
+.card--highlight .card-title {
+  font-size: 1.35rem;
 }
 
-figcaption {
-    margin-top: 10px;
-    font-size: 12px;
-    color: #777777;
-    text-align: left;
-    line-height: 1.4;
+/* SECTION 2 - MIKROPLASTIK */
+.topic--mikroplastik {
+  grid-template-columns: minmax(0, 1fr) var(--media-width);
+  grid-template-areas:
+    "title ."
+    "cards media";
+  column-gap: 4.3rem;
+  padding: 4rem 2.6rem 4.25rem 2.9rem;
+  background: var(--navy);
 }
 
-.article-divider {
-    width: 60%;
-    height: 1px;
-    background-color: #dddddd;
-    margin: 30px auto;
+.topic--mikroplastik .quote,
+.topic--mikroplastik .card {
+  background: var(--blue-card);
+}
+        footer {
+            width: 100%;
+            background-color: #1D3557;
+            padding: 3rem 0;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        footer p {
+            color: white;
+        }
+
+/* RESPONSIF */
+
+/* Tablet: kolom section jadi satu */
+@media (max-width: 900px) {
+  .topic--mangrove,
+  .topic--mikroplastik {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "title"
+      "media"
+      "cards";
+    column-gap: 0;
+    row-gap: 1.25rem;
+    padding: 2.5rem 1.75rem 2.5rem;
+  }
+
+  .topic-title {
+    font-size: 1.75rem;
+  }
+
+  .media-figure img {
+    height: clamp(200px, 40vw, 320px);
+  }
 }
 
-.article-content {
-    font-size: 14.5px;
-    line-height: 1.65;
-    color: #2b2b2b;
-}
-
-.article-content p {
-    margin-bottom: 18px;
-}
-
-.article-content h2 {
-    font-size: 16px;
-    font-weight: 700;
-    margin: 24px 0 10px 0;
-    color: #111111;
-}
-
-.key-facts {
-    margin: 20px 0;
-}
-
-.facts-heading {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.key-facts ul {
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-.key-facts li {
-    margin-bottom: 10px;
-}
-
-.source-name {
-    color: #555555;
-    text-decoration: underline;
-    font-size: 13.5px;
-    cursor: pointer;
-}
-
+/* Mobile: navbar hamburger */
 @media (max-width: 768px) {
-
+ /* ini untuk navbar hp */
     .nav {
         padding: 0.6rem 1.5rem;
     }
@@ -281,4 +343,82 @@ figcaption {
         display: flex;
     }
     /* ini untuk navbar hp */
+}
+
+/* Mobile: kartu jadi 1 kolom */
+@media (max-width: 600px) {
+  main {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .topic--mangrove,
+  .topic--mikroplastik {
+    padding: 2rem 1.1rem 2rem;
+  }
+
+  .topic-title {
+    font-size: 1.5rem;
+  }
+
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    min-height: 0;
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+  }
+
+  .card-text {
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+  .quote p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Preferensi gerak */
+@media (prefers-reduced-motion: reduce) {
+  .menu a,
+  .hamburger span {
+    transition: none;
+  }
+}
+
+/* Back to top button */
+html {
+  scroll-behavior: smooth;
+}
+
+.back-to-top {
+  position: absolute;
+  bottom: 20px;
+  right: 20px; 
+  width: 50px;
+  height: 50px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease;
+  z-index: 10;
+}
+
+.back-to-top:hover {
+  background-color: #c5c5c5;
+}
+
+.arrow-icon {
+  width: 18px;
+  height: auto;
+  display: block;
 }

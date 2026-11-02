@@ -1,0 +1,305 @@
+        @font-face {
+            font-family: ITC Avant Garde Gothic Bold;
+            src: url('../assets/fonts/ITC Avant Garde Gothic Bold.otf');
+        }
+        @font-face {
+            font-family: weezerfont;
+            src: url('../assets/fonts/weezerfont.ttf');
+        }
+        h1,h2 {
+            font-family: ITC Avant Garde Gothic Bold;
+        }
+        p,a {
+            font-family: weezerfont;
+        }
+        a {
+            text-decoration: none;
+        }
+        :root {
+            --teks-gelap: #1D3557;
+            --biru: #457B9D;
+            --biru-muda: #A8DADC;
+            --putih-bg: #F1FAEE;
+            --teal: #F1FAEE;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .distance {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .distance-element {
+            max-width: 80%;
+        }
+
+/* ini untuk navbar desktop */
+        nav {
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            height: 4rem;
+            position: relative;
+            padding: 0.6rem 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 2;
+        }
+        nav .logo {
+            width: 10rem;
+        }
+        .menu {
+            display: flex;
+            gap: 2rem;
+        }
+        .menu-toggle {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        nav a {
+            padding-bottom: 3px;
+            color: var(--teks-gelap);
+            font-weight: 800;
+             
+        }
+        nav a:hover {
+            border-bottom: 3px solid var(--teks-gelap);
+        }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 1.6rem;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--teks-gelap);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+ /* ini untuk navbar desktop */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                                url(../assets/images/sanur.jpg.jpeg);
+            min-height: 35rem;
+            display: flex;
+            align-items: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-content {
+         max-width: 40rem;
+         color: var(--putih-bg);
+         padding-left: 2rem;
+
+        }
+        .hero h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+        .hero p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            width: 90%;
+        }
+
+        .explain {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 36px 48px;
+        }
+        .explain-card {
+            padding: 20px;
+            border-top: solid orange 5px;
+        }
+        .explain-card h1 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        .explain p {
+            line-height: 1.75rem;
+        }
+
+        .card {
+            background-color: #1D3557;
+            min-height: 35rem;
+            display: flex;
+            align-items: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 1rem;
+            flex-direction: column;
+            padding: 3rem;
+            text-align: center;
+            gap: 28px;
+        }
+        .card h1 {
+            font-size: 1.5rem;
+        }
+        .card-element {
+            background-color: white;
+            width: auto;
+            text-align: left;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-body {
+            flex: 1;                  
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 1.25rem 1.5rem;
+}
+        .card-element a {
+            margin-top: auto;
+            padding-top: 1rem;
+            align-self:flex-start;
+        }
+        .card-image {
+            width: 100%; 
+            border-radius: 8px 8px 0 0;
+            object-fit: cover;
+            aspect-ratio: 3 / 2;
+        }
+        .card .explain {
+            width: 100%;
+        }
+        footer {
+            width: 100%;
+            background-color: #1D3557;
+            padding: 3rem 0;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        footer p {
+            color: white;
+        }
+
+    @media(max-width: 1100px){
+    .explain {
+        grid-template-columns: 1fr 1fr;
+    }
+    }
+        @media (max-width: 820px) {
+
+    .hero {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 2rem;
+    }
+    .hero-content {
+        padding-left: 0;
+    }
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    /* ini untuk navbar hp */
+    .nav {
+        padding: 0.6rem 1.5rem;
+    }
+    .menu-toggle:checked + .hamburger span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle:checked + .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle:checked + .hamburger span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Garis fokus saat tombol dipilih dengan keyboard */
+    .menu-toggle:focus-visible + .hamburger {
+      outline: 3px solid #d9482b;
+      border-radius: 6px;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: white;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    .menu a {
+        padding: 0.9rem 1.5rem;
+    }
+    .menu a:hover {
+        background: var(--biru-muda);
+        color: var(--teks-gelap);
+    }
+
+      /* Menu tampil saat checkbox dicentang */
+    .menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+    .hamburger {
+        display: flex;
+    }
+    /* ini untuk navbar hp */
+
+    .explain {
+        grid-template-columns: 1fr;
+    }
+
+    }
+
+/* ini untuk back to top */
+html {
+  scroll-behavior: smooth;
+}
+
+.back-to-top {
+  position: absolute;
+  bottom: 20px;
+  right: 20px; 
+  width: 50px;
+  height: 50px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease;
+  z-index: 10;
+}
+
+.back-to-top:hover {
+  background-color: #c5c5c5;
+}
+
+.arrow-icon {
+  width: 18px;
+  height: auto;
+  display: block;
+}

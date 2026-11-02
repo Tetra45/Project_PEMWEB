@@ -1,17 +1,11 @@
 @font-face {
-  font-family: 'Avant Garde Gothic Bold';
-  src: url('../assets/fonts/AvantGardeGothic-Bold.woff2') format('woff2'),
-       url('../assets/fonts/AvantGardeGothic-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
+  font-family: 'ITC Avant Garde Gothic Bold';
+  src:url('../assets/fonts/ITC Avant Garde Gothic Bold.otf');
 }
 
 @font-face {
   font-family: 'weezerfont';
-  src: url('../assets/fonts/weezerfont.woff2') format('woff2'),
-       url('../assets/fonts/weezerfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  src:url('../assets/fonts/weezerfont.ttf');
 }
 
 * {
@@ -21,15 +15,14 @@
 }
 
 body {
-  font-family: 'weezerfont', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'weezerfont';
   background: #0c4a6e;
   color: #1e293b;
   line-height: 1.6;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Avant Garde Gothic Bold', 'Segoe UI', sans-serif;
-  font-weight: bold;
+  font-family: 'ITC Avant Garde Gothic Bold';
 }
 :root {
             --teks-gelap: #1D3557;
@@ -142,6 +135,7 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 150px;
   object-fit: cover;
+  object-position: center 15%;
   border-radius: 6px;
   margin-bottom: 10px;
 }
@@ -233,6 +227,37 @@ h1, h2, h3, h4 {
 .reference-list li {
   margin-bottom: 8px;
 }
+/* Gaya untuk tombol "Back to Top" */
+html {
+  scroll-behavior: smooth;
+}
+
+.back-to-top {
+  position: absolute;
+  bottom: 20px;
+  right: 20px; 
+  width: 50px;
+  height: 50px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease;
+  z-index: 10;
+}
+
+.back-to-top:hover {
+  background-color: #c5c5c5;
+}
+
+.arrow-icon {
+  width: 18px;
+  height: auto;
+  display: block;
+}
 
 /* ini untuk navbar desktop */
         nav {
@@ -266,6 +291,7 @@ h1, h2, h3, h4 {
             padding-bottom: 3px;
             color: var(--teks-gelap);
             font-weight: 800;
+            text-decoration: none;
              
         }
         nav a:hover {
@@ -289,6 +315,19 @@ h1, h2, h3, h4 {
       transition: transform 0.3s, opacity 0.3s;
     }
  /* ini untuk navbar desktop */
+
+        footer {
+            width: 100%;
+            background-color: #1D3557;
+            padding: 3rem 0;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        footer p {
+            color: white;
+        }
   @media (max-width: 768px) {
 
         /* ini untuk navbar hp */
