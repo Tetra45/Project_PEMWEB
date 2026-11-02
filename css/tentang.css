@@ -1,0 +1,343 @@
+@font-face {
+  font-family: 'Avant Garde Gothic Bold';
+  src: url('../assets/fonts/AvantGardeGothic-Bold.woff2') format('woff2'),
+       url('../assets/fonts/AvantGardeGothic-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'weezerfont';
+  src: url('../assets/fonts/weezerfont.woff2') format('woff2'),
+       url('../assets/fonts/weezerfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'weezerfont', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0c4a6e;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Avant Garde Gothic Bold', 'Segoe UI', sans-serif;
+  font-weight: bold;
+}
+:root {
+            --teks-gelap: #1D3557;
+            --biru: #457B9D;
+            --biru-muda: #A8DADC;
+            --putih-bg: #F1FAEE;
+            --teal: #F1FAEE;
+}
+
+.ocean-section {
+  position: relative;
+  padding: 60px 20px;
+  min-height: 100vh;
+  background: linear-gradient(rgba(2, 132, 199, 0.55), rgba(12, 74, 110, 0.82)), 
+              url('../assets/images/Tropical Village Along Turquoise Shores.png') center/cover no-repeat fixed;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ocean-bg-decor {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.15) 0%, transparent 20%),
+    radial-gradient(circle at 88% 80%, rgba(255, 255, 255, 0.10) 0%, transparent 25%);
+  pointer-events: none;
+}
+
+.content-container {
+  position: relative;
+  max-width: 880px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 0;
+}
+
+.binder-paper {
+  position: relative;
+  background-color: rgba(247, 252, 255, 0.96);
+  background-image: linear-gradient(to bottom, #bae6fd 1px, transparent 1px);
+  background-size: 100% 28px;
+  line-height: 28px;
+  padding: 40px 35px 40px 75px;
+  border-radius: 10px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  border-left: 6px solid #38bdf8;
+}
+
+.binder-paper::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  top: 35px;
+  bottom: 35px;
+  width: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 28'%3E%3Ccircle cx='10' cy='14' r='6' fill='%2306283d' stroke='%2338bdf8' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 20px 28px;
+  background-repeat: repeat-y;
+  background-position: center top;
+  filter: drop-shadow(1px 1.5px 2px rgba(0, 0, 0, 0.25));
+  pointer-events: none;
+}
+
+.binder-paper h2 {
+  color: #0369a1;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  border-bottom: 2px dashed #38bdf8;
+  padding-bottom: 4px;
+}
+
+.binder-paper h3 {
+  color: #0284c7;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  margin-top: 15px;
+}
+
+.binder-paper p, .reference-list li {
+  font-size: 0.95rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+  margin-top: 15px;
+}
+
+.team-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border: 2px solid #bae6fd;
+  transition: transform 0.25s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  border-color: #38bdf8;
+}
+
+.team-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.team-card h4 {
+  color: #0369a1;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.team-card span {
+  display: block;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.sticky-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.sticky-note {
+  position: relative;
+  padding: 35px 22px 22px 22px;
+  border-radius: 4px;
+  box-shadow: 6px 10px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease;
+}
+
+.sticky-note:hover {
+  transform: translateY(-5px) rotate(0deg) !important;
+}
+
+.note-visi {
+  background: rgba(224, 242, 254, 0.95);
+  transform: rotate(-2deg);
+}
+
+.note-misi {
+  background: rgba(204, 251, 241, 0.95);
+  transform: rotate(2deg);
+}
+
+.ocean-magnet {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  font-size: 18px;
+  z-index: 10;
+}
+
+.ocean-magnet.starfish {
+  background: radial-gradient(circle, #fb923c 30%, #ea580c 90%);
+  border: 2px solid #ffedd5;
+}
+
+.ocean-magnet.shell {
+  background: radial-gradient(circle, #38bdf8 30%, #0284c7 90%);
+  border: 2px solid #e0f2fe;
+}
+
+.sticky-note h3 {
+  color: #0369a1;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.sticky-note p, .sticky-note ul {
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: #0f172a;
+}
+
+.sticky-note ul, .reference-list {
+  padding-left: 20px;
+}
+
+.reference-list li {
+  margin-bottom: 8px;
+}
+
+/* ini untuk navbar desktop */
+        nav {
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            height: 4rem;
+            position: relative;
+            padding: 0.6rem 1.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 2;
+        }
+        nav .logo {
+            width: 10rem;
+        }
+        .menu {
+            display: flex;
+            gap: 2rem;
+            
+        }
+        .menu-toggle {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            
+
+        }
+        nav a {
+            padding-bottom: 3px;
+            color: var(--teks-gelap);
+            font-weight: 800;
+             
+        }
+        nav a:hover {
+            border-bottom: 3px solid var(--teks-gelap);
+        }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 1.6rem;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--teks-gelap);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+ /* ini untuk navbar desktop */
+  @media (max-width: 768px) {
+
+        /* ini untuk navbar hp */
+    .nav {
+        padding: 0.6rem 1.5rem;
+    }
+    .menu-toggle:checked + .hamburger span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle:checked + .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle:checked + .hamburger span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Garis fokus saat tombol dipilih dengan keyboard */
+    .menu-toggle:focus-visible + .hamburger {
+      outline: 3px solid #d9482b;
+      border-radius: 6px;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: white;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    .menu a {
+        padding: 0.9rem 1.5rem;
+    }
+    .menu a:hover {
+        background: var(--biru-muda);
+        color: var(--teks-gelap);
+    }
+
+      /* Menu tampil saat checkbox dicentang */
+    .menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+    .hamburger {
+        display: flex;
+    }
+    /* ini untuk navbar hp */
+  }
