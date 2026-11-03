@@ -254,7 +254,10 @@
     .quote-title {
     font-size: 2rem;
     }
-
+    .distance-element {
+        border-radius: 0px;
+        width: 100%;
+    }
     .hero {
         justify-content: center;
         align-items: center;
