@@ -142,6 +142,7 @@ Di halaman Panduan, kartu berselang-seling di desktop. Saat menjadi satu kolom, 
 ```
 
 ## Struktur Folder
+```text
 >Project_PEMWEB
     >assets
         >fonts
@@ -163,7 +164,7 @@ Di halaman Panduan, kartu berselang-seling di desktop. Saat menjadi satu kolom, 
         >tentang.html
     >index.html
     >Readme.md
-
+```
 ## Website dan Repository
 https://tetra45.github.io/Project_PEMWEB/.
 
