@@ -7,7 +7,7 @@ SDG 13 dan SDG 14
 1. Komang Hendra Swantara - 2515091013 - Navigasi, footer, homepage(setengah), & informasi page.
 2. Fransiskus Asisi Nathaniel Yudhistira Dheasaputra - 2515091063 - Edukasi & Panduan.
 3. I Gusti Ngurah Agung Rangga Putrasena -2515091073 - tentang, homepage(setengah), & back to top button. 
-4. Ananda Gede Isvara Vidhi Sairam - 2515091088 - artikel1, artikel2, artikel3.
+4. Ananda Gede Isvara Vidhi Sairam - 2515091088 - artikel1, artikel2 dan artikel3.
 
 ## Deskripsi Website
 Tujuan : Menyajikan fakta-fakta ilmiah tentang keanekaragaman hayati pesisir serta isu SDG 13 & 14.
